@@ -18,11 +18,26 @@ public class MenuPanel extends JPanel {
         setBackground(Color.WHITE);
         setBorder(BorderFactory.createEmptyBorder(20, 30, 20, 30));
 
+        //Encabezado
+        JPanel pnlHeader = new JPanel();
+        pnlHeader.setLayout(new BoxLayout(pnlHeader, BoxLayout.Y_AXIS));
+        pnlHeader.setOpaque(false);
+
         // === Título ===
         CustomLabel lblTitle = new CustomLabel("Menú del Día");
         lblTitle.setFont(new Font("Segoe UI Semibold", Font.BOLD, 24));
         lblTitle.setForeground(new Color(33, 150, 243));
-        add(lblTitle, BorderLayout.NORTH);
+        lblTitle.setAlignmentX(Component.LEFT_ALIGNMENT);
+        pnlHeader.add(lblTitle);
+
+        CustomLabel lblSubTitle = new CustomLabel("Click sobre la imagen para seleccionar un producto." );
+        lblSubTitle.setFont(new Font("Segoe UI Semibold", Font.BOLD, 16));
+        lblSubTitle.setForeground(new Color(33, 150, 243));
+        lblSubTitle.setAlignmentX(Component.LEFT_ALIGNMENT);
+        pnlHeader.add(Box.createVerticalStrut(5));
+        pnlHeader.add(lblSubTitle);
+
+        add(pnlHeader, BorderLayout.NORTH);
 
         // === Comidas ===
         JPanel grid = new JPanel(new GridLayout(0, 3, 15, 15));
